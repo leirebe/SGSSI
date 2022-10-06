@@ -1,0 +1,427 @@
+C:\Users\Leire Becerra>gpg --generate-key
+
+Nota: Usa "gpg --full-generate-key" para el diálogo completo de generación de clave.
+
+GnuPG debe construir un ID de usuario para identificar su clave.
+
+Nombre y apellidos: Leire Becerra
+Dirección de correo electrónico: leirebecerraa@gmail.com
+Ha seleccionado este ID de usuario:
+    "Leire Becerra <leirebecerraa@gmail.com>"
+
+¿Cambia (N)ombre, (D)irección o (V)ale/(S)alir? V
+
+gpg: creado el directorio 'C:\\Users\\Leire Becerra\\AppData\\Roaming\\gnupg\\openpgp-revocs.d'
+gpg: certificado de revocación guardado como 'C:\\Users\\Leire Becerra\\AppData\\Roaming\\gnupg\\openpgp-revocs.d\\6E31EF636F96BE20EE3B5AB192A7FD90CB427176.rev'
+claves pública y secreta creadas y firmadas.
+
+pub   ed25519 2022-10-06 [SC] [caduca: 2024-10-05]
+      6E31EF636F96BE20EE3B5AB192A7FD90CB427176
+uid                      Leire Becerra <leirebecerraa@gmail.com>
+sub   cv25519 2022-10-06 [E] [caduca: 2024-10-05]
+
+
+C:\Users\Leire Becerra>gpg --list-keys
+gpg: comprobando base de datos de confianza
+gpg: marginals needed: 3  completes needed: 1  trust model: pgp
+gpg: nivel: 0  validez:   1  firmada:   0  confianza: 0-, 0q, 0n, 0m, 0f, 1u
+gpg: siguiente comprobación de base de datos de confianza el: 2024-10-05
+C:\Users\Leire Becerra\AppData\Roaming\gnupg\pubring.kbx
+--------------------------------------------------------
+pub   ed25519 2022-10-06 [SC] [caduca: 2024-10-05]
+      6E31EF636F96BE20EE3B5AB192A7FD90CB427176
+uid        [  absoluta ] Leire Becerra <leirebecerraa@gmail.com>
+sub   cv25519 2022-10-06 [E] [caduca: 2024-10-05]
+
+
+C:\Users\Leire Becerra>gpg -o claveLeire.key --export leirebecerraa@gmail.com //claveLeire.key es una cajita donde vamos a guardar la clave publica de ese usuario
+
+C:\Users\Leire Becerra>dir
+
+
+ Directorio de C:\Users\Leire Becerra
+
+06/10/2022  13:12    <DIR>          .
+06/10/2022  13:12    <DIR>          ..
+22/05/2022  16:46    <DIR>          .cache
+22/05/2022  16:46    <DIR>          .eclipse
+03/10/2022  13:39               109 .gitconfig
+18/06/2022  16:29    <DIR>          .lemminx
+09/06/2022  13:12    <DIR>          .m2
+03/10/2022  18:20    <DIR>          .p2
+05/10/2022  11:26    <DIR>          .swt
+01/10/2022  13:32    <DIR>          .vscode
+06/05/2022  10:44    <DIR>          3D Objects
+06/10/2022  13:12               435 claveLeire.key //aqui esta guardada mi clave publica
+06/05/2022  10:44    <DIR>          Contacts
+06/10/2022  10:15    <DIR>          Desktop
+05/10/2022  10:03    <DIR>          Documents
+06/10/2022  13:01    <DIR>          Downloads
+09/06/2022  10:10    <DIR>          eclipse
+08/06/2022  18:15    <DIR>          eclipse-workspace
+06/05/2022  10:44    <DIR>          Favorites
+18/06/2022  11:43    <DIR>          HP
+05/10/2022  12:10               376 imagina.java
+06/05/2022  10:44    <DIR>          Links
+06/05/2022  10:44    <DIR>          Music
+04/10/2022  19:18    <DIR>          new workspace
+24/04/2022  13:33    <DIR>          OneDrive
+28/06/2022  15:16    <DIR>          Pictures
+06/05/2022  10:44    <DIR>          Saved Games
+06/05/2022  10:44    <DIR>          Searches
+09/05/2022  15:10    <DIR>          Videos
+
+
+C:\Users\Leire Becerra>cd Downloads
+
+C:\Users\Leire Becerra\Downloads>gpg --import claveruben.asc //aqui hemos importado la clave publica que nos ha pasado ruben
+gpg: clave F2C81208076F9757: clave pública "Rubén Esgueva Angulo <resgueva64@gmail.com>" importada
+gpg: Cantidad total procesada: 1
+gpg:               importadas: 1
+
+C:\Users\Leire Becerra\Downloads>gpg --list-keys
+C:\Users\Leire Becerra\AppData\Roaming\gnupg\pubring.kbx
+--------------------------------------------------------
+pub   ed25519 2022-10-06 [SC] [caduca: 2024-10-05]
+      6E31EF636F96BE20EE3B5AB192A7FD90CB427176
+uid        [  absoluta ] Leire Becerra <leirebecerraa@gmail.com>
+sub   cv25519 2022-10-06 [E] [caduca: 2024-10-05]
+
+pub   rsa3072 2022-10-06 [SC] [caduca: 2024-10-05]
+      74B642ADEDF0F4812303AB27F2C81208076F9757
+uid        [desconocida] Rubén Esgueva Angulo <resgueva64@gmail.com> //ya hemos importado su clave publica
+sub   rsa3072 2022-10-06 [E] [caduca: 2024-10-05]
+
+C:\Users\Leire Becerra\Downloads>gpg --edit-key //tenemos que especificar que clave publica queremos editar
+
+
+uso: gpg [opciones] --edit-key user-id [commands]
+
+C:\Users\Leire Becerra\Downloads>gpg --edit-key ruben
+
+
+gpg: clave "ruben" no encontrada: No hay clave pública	 //No encuentra la clave pública porque no tiene el acento
+
+C:\Users\Leire Becerra\Downloads>gpg --list-keys
+C:\Users\Leire Becerra\AppData\Roaming\gnupg\pubring.kbx
+--------------------------------------------------------
+pub   ed25519 2022-10-06 [SC] [caduca: 2024-10-05]
+      6E31EF636F96BE20EE3B5AB192A7FD90CB427176
+uid        [  absoluta ] Leire Becerra <leirebecerraa@gmail.com>
+sub   cv25519 2022-10-06 [E] [caduca: 2024-10-05]
+
+pub   rsa3072 2022-10-06 [SC] [caduca: 2024-10-05]
+      74B642ADEDF0F4812303AB27F2C81208076F9757
+uid        [desconocida] Rubén Esgueva Angulo <resgueva64@gmail.com>
+sub   rsa3072 2022-10-06 [E] [caduca: 2024-10-05]
+
+
+C:\Users\Leire Becerra\Downloads>gpg --edit-key Rubén
+
+pub  rsa3072/F2C81208076F9757
+     creado: 2022-10-06  caduca: 2024-10-05  uso: SC
+     confianza: desconocido   validez: desconocido
+sub  rsa3072/3512E15F4A665FA1
+     creado: 2022-10-06  caduca: 2024-10-05  uso: E
+[desconocida] (1). Rubén Esgueva Angulo <resgueva64@gmail.com>
+
+gpg> trust //decidimos confiar en Rubén
+pub  rsa3072/F2C81208076F9757
+     creado: 2022-10-06  caduca: 2024-10-05  uso: SC
+     confianza: desconocido   validez: desconocido
+sub  rsa3072/3512E15F4A665FA1
+     creado: 2022-10-06  caduca: 2024-10-05  uso: E
+[desconocida] (1). Rubén Esgueva Angulo <resgueva64@gmail.com>
+
+  1 = No lo sé o prefiero no decirlo
+  2 = NO tengo confianza
+  3 = Confío un poco
+  4 = Confío totalmente
+  5 = confío absolutamente
+  m = volver al menú principal
+
+¿Su decisión? 4 /elegimos el nivel de confianza
+
+pub  rsa3072/F2C81208076F9757
+     creado: 2022-10-06  caduca: 2024-10-05  uso: SC
+     confianza: total         validez: desconocido
+sub  rsa3072/3512E15F4A665FA1
+     creado: 2022-10-06  caduca: 2024-10-05  uso: E
+[desconocida] (1). Rubén Esgueva Angulo <resgueva64@gmail.com>
+
+
+gpg> quit //salimos
+
+C:\Users\Leire Becerra\Downloads>gpg --sign-key Rubén //ahora procedemos a darle validez firmando su clave pública.
+gpg: comprobando base de datos de confianza
+gpg: marginals needed: 3  completes needed: 1  trust model: pgp
+gpg: nivel: 0  validez:   1  firmada:   0  confianza: 0-, 0q, 0n, 0m, 0f, 1u
+gpg: siguiente comprobación de base de datos de confianza el: 2024-10-05
+
+pub  rsa3072/F2C81208076F9757
+     creado: 2022-10-06  caduca: 2024-10-05  uso: SC
+     confianza: total         validez: desconocido
+sub  rsa3072/3512E15F4A665FA1
+     creado: 2022-10-06  caduca: 2024-10-05  uso: E
+[desconocida] (1). Rubén Esgueva Angulo <resgueva64@gmail.com>
+
+
+pub  rsa3072/F2C81208076F9757
+     creado: 2022-10-06  caduca: 2024-10-05  uso: SC
+     confianza: total         validez: desconocido
+ Huella clave primaria: 74B6 42AD EDF0 F481 2303  AB27 F2C8 1208 076F 9757
+
+     Rubén Esgueva Angulo <resgueva64@gmail.com>
+
+Esta clave expirará el 2024-10-05.
+¿Está realmente seguro de querer firmar esta clave
+con su clave: "Leire Becerra <leirebecerraa@gmail.com>" (92A7FD90CB427176)?
+
+¿Firmar de verdad? (s/N) s
+
+
+C:\Users\Leire Becerra\Downloads>gpg --list-keys
+gpg: comprobando base de datos de confianza
+gpg: marginals needed: 3  completes needed: 1  trust model: pgp
+gpg: nivel: 0  validez:   1  firmada:   1  confianza: 0-, 0q, 0n, 0m, 0f, 1u
+gpg: nivel: 1  validez:   1  firmada:   0  confianza: 0-, 0q, 0n, 0m, 1f, 0u
+gpg: siguiente comprobación de base de datos de confianza el: 2024-10-05
+C:\Users\Leire Becerra\AppData\Roaming\gnupg\pubring.kbx
+--------------------------------------------------------
+pub   ed25519 2022-10-06 [SC] [caduca: 2024-10-05]
+      6E31EF636F96BE20EE3B5AB192A7FD90CB427176
+uid        [  absoluta ] Leire Becerra <leirebecerraa@gmail.com>
+sub   cv25519 2022-10-06 [E] [caduca: 2024-10-05]
+
+pub   rsa3072 2022-10-06 [SC] [caduca: 2024-10-05]
+      74B642ADEDF0F4812303AB27F2C81208076F9757
+uid        [   total   ] Rubén Esgueva Angulo <resgueva64@gmail.com>
+sub   rsa3072 2022-10-06 [E] [caduca: 2024-10-05]
+
+
+C:\Users\Leire Becerra\Downloads>gpg -o claveRuben.asc --export resgueva64@gmail.com //Si yo no le envio otra vez a Ruben su clave pero FIRMADA, no sirve.
+Esta funcion de guardar la clave pública otra vez en el archivo claveRuben.asc es por que ahora esta firmada por MI.
+El fichero 'claveRuben.asc' ya existe. ¿Sobreescribir? (s/N) s
+
+ENCRIPTACION:
+Se trata de encriptar un archivo y que no lo pueda ver nadie más excepto las personas que elijamos.
+
+C:\Users\Leire Becerra\Downloads>gpg --encrypt cifrado.pdf
+No ha especificado un ID de usuario (puede usar "-r") //nos pide especificar el otro usuario que queramos que tenga "permiso" para desencriptarlo en la siguiente linea
+
+Destinatarios actuales:
+
+Introduzca ID de usuario. Acabe con una línea vacía: Rubén //la persona que queremos que lo pueda desencriptar
+
+Destinatarios actuales:
+rsa3072/3512E15F4A665FA1 2022-10-06 "Rubén Esgueva Angulo <resgueva64@gmail.com>"
+
+Introduzca ID de usuario. Acabe con una línea vacía:
+//lo proximo sería ver como lo puede desencriptar Ruben
+
+C:\Users\Leire Becerra\Downloads>dir
+
+ Directorio de C:\Users\Leire Becerra\Downloads
+
+06/10/2022  13:35    <DIR>          .
+06/10/2022  13:35    <DIR>          ..
+24/06/2022  07:07         3.397.560 10 puntuko azterketaren ebazpena.pdf
+05/10/2022  08:25           282.764 2.0.3-TADsInterfaceGenerico.pdf
+10/06/2022  19:56           456.381 2021 06 29 ez-ohiko deialdia eta emaitzak.pdf
+28/06/2022  14:23         2.817.903 Cambio num cuenta.pdf
+30/06/2022  21:28         2.669.722 CamScanner 06-29-2022 16.05.pdf
+30/06/2022  21:27         1.571.166 CamScanner 06-29-2022 16.11.pdf
+02/09/2022  20:36           693.150 CamScanner 07-14-2022 18.14 (1).pdf
+02/09/2022  20:36           693.150 CamScanner 07-14-2022 18.14.pdf
+23/08/2022  18:13           432.062 CamScanner 08-23-2022 17.08.pdf
+04/10/2022  19:01            18.008 Checklist_cas.odt
+24/04/2022  13:35         1.414.600 ChromeSetup.exe
+23/09/2022  06:16            68.681 Cifrado-I.pdf
+23/09/2022  06:20         1.426.963 cifrado.pdf
+06/10/2022  13:35         1.228.079 cifrado.pdf.gpg //aqui esta el archivo encriptado
+.
+.
+.
+
+COMO SE DESENCRIPTA:
+C:\Users\Leire Becerra\Downloads>gpg --encrypt "Cambio num cuenta.pdf" 
+No ha especificado un ID de usuario (puede usar "-r")
+
+Destinatarios actuales:
+
+Introduzca ID de usuario. Acabe con una línea vacía: Leire Becerra
+
+Destinatarios actuales:
+cv25519/708C4201F9D98FB7 2022-10-06 "Leire Becerra <leirebecerraa@gmail.com>"
+
+Introduzca ID de usuario. Acabe con una línea vacía:
+
+
+C:\Users\Leire Becerra\Downloads>gpg -o importante.pdf --decrypt //desencriptamos el archivo en el pdf llamado importante.pdf
+
+PRUEBACOMMIT:
+C:\Users\Leire Becerra\Downloads>gpg --full-generate-key
+gpg (GnuPG) 2.3.7; Copyright (C) 2021 g10 Code GmbH
+This is free software: you are free to change and redistribute it.
+There is NO WARRANTY, to the extent permitted by law.
+
+Por favor seleccione tipo de clave deseado:
+   (1) RSA and RSA
+   (2) DSA and Elgamal
+   (3) DSA (sign only)
+   (4) RSA (sign only)
+   (9) ECC (sign and encrypt) *default*
+  (10) ECC (sólo firmar)
+  (14) Existing key from card
+Su elección: 1
+las claves RSA pueden tener entre 1024 y 4096 bits de longitud.
+¿De qué tamaño quiere la clave? (3072) 4096
+El tamaño requerido es de 4096 bits
+Por favor, especifique el período de validez de la clave.
+         0 = la clave nunca caduca
+      <n>  = la clave caduca en n días
+      <n>w = la clave caduca en n semanas
+      <n>m = la clave caduca en n meses
+      <n>y = la clave caduca en n años
+¿Validez de la clave (0)? 0
+La clave nunca caduca
+¿Es correcto? (s/n) s
+
+GnuPG debe construir un ID de usuario para identificar su clave.
+
+Nombre y apellidos: Leire Becerra
+Dirección de correo electrónico: leirebecerraa@gmail.com
+Comentario: pruebacommit
+Ha seleccionado este ID de usuario:
+    "Leire Becerra (pruebacommit) <leirebecerraa@gmail.com>"
+
+¿Cambia (N)ombre, (C)omentario, (D)irección o (V)ale/(S)alir? V
+Es necesario generar muchos bytes aleatorios. Es una buena idea realizar
+alguna otra tarea (trabajar en otra ventana/consola, mover el ratón, usar
+la red y los discos) durante la generación de números primos. Esto da al
+generador de números aleatorios mayor oportunidad de recoger suficiente
+entropía.
+Es necesario generar muchos bytes aleatorios. Es una buena idea realizar
+alguna otra tarea (trabajar en otra ventana/consola, mover el ratón, usar
+la red y los discos) durante la generación de números primos. Esto da al
+generador de números aleatorios mayor oportunidad de recoger suficiente
+entropía.
+gpg: certificado de revocación guardado como 'C:\\Users\\Leire Becerra\\AppData\\Roaming\\gnupg\\openpgp-revocs.d\\ED65C1F8D290F30BEA684A8780F342B820A6B0AB.rev'
+claves pública y secreta creadas y firmadas.
+
+pub   rsa4096 2022-10-06 [SC]
+      ED65C1F8D290F30BEA684A8780F342B820A6B0AB
+uid                      Leire Becerra (pruebacommit) <leirebecerraa@gmail.com>
+sub   rsa4096 2022-10-06 [E]
+
+
+C:\Users\Leire Becerra\Downloads>gpg -list-keys
+gpg: invalid option "-list-keys"
+
+C:\Users\Leire Becerra\Downloads>gpg -list-keys
+gpg: invalid option "-list-keys"
+
+C:\Users\Leire Becerra\Downloads>gpg -k
+gpg: comprobando base de datos de confianza
+gpg: marginals needed: 3  completes needed: 1  trust model: pgp
+gpg: nivel: 0  validez:   2  firmada:   1  confianza: 0-, 0q, 0n, 0m, 0f, 2u
+gpg: nivel: 1  validez:   1  firmada:   0  confianza: 0-, 0q, 0n, 0m, 1f, 0u
+gpg: siguiente comprobación de base de datos de confianza el: 2024-10-05
+C:\Users\Leire Becerra\AppData\Roaming\gnupg\pubring.kbx
+--------------------------------------------------------
+pub   ed25519 2022-10-06 [SC] [caduca: 2024-10-05]
+      6E31EF636F96BE20EE3B5AB192A7FD90CB427176
+uid        [  absoluta ] Leire Becerra <leirebecerraa@gmail.com>
+sub   cv25519 2022-10-06 [E] [caduca: 2024-10-05]
+
+pub   rsa3072 2022-10-06 [SC] [caduca: 2024-10-05]
+      74B642ADEDF0F4812303AB27F2C81208076F9757
+uid        [   total   ] Rubén Esgueva Angulo <resgueva64@gmail.com>
+sub   rsa3072 2022-10-06 [E] [caduca: 2024-10-05]
+
+pub   rsa4096 2022-10-06 [SC]
+      ED65C1F8D290F30BEA684A8780F342B820A6B0AB
+uid        [  absoluta ] Leire Becerra (pruebacommit) <leirebecerraa@gmail.com>
+sub   rsa4096 2022-10-06 [E]
+
+
+C:\Users\Leire Becerra\Downloads>gpg --list-secret-keys --keyid-format=long //para que se vea toda la lista de usuarios+sus claves publicas
+C:\Users\Leire Becerra\AppData\Roaming\gnupg\pubring.kbx
+--------------------------------------------------------
+sec   ed25519/92A7FD90CB427176 2022-10-06 [SC] [caduca: 2024-10-05]
+      6E31EF636F96BE20EE3B5AB192A7FD90CB427176
+uid              [  absoluta ] Leire Becerra <leirebecerraa@gmail.com>
+ssb   cv25519/708C4201F9D98FB7 2022-10-06 [E] [caduca: 2024-10-05]
+
+sec   rsa4096/80F342B820A6B0AB 2022-10-06 [SC]
+      ED65C1F8D290F30BEA684A8780F342B820A6B0AB
+uid              [  absoluta ] Leire Becerra (pruebacommit) <leirebecerraa@gmail.com>
+ssb   rsa4096/6EEE084F0C918FB8 2022-10-06 [E]
+
+
+C:\Users\Leire Becerra\Downloads>gpg --armor --export 80F342B820A6B0AB
+-----BEGIN PGP PUBLIC KEY BLOCK-----
+
+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
+vldRndC83BvL4dytw+E3a7GlQM63
+=Tm2G
+-----END PGP PUBLIC KEY BLOCK-----
+
+CIFRAR CON UNA CONTRASEÑA: 
+C:\Users\Leire Becerra\Downloads>gpg --symmetric "CamScanner 07-14-2022 18.14.pdf" //cifro este archivo con una contraseña y toda persona que se la sepa puede abrirlo
+
+C:\Users\Leire Becerra\Downloads>gpg -o avellanas1.pdf --decrypt "CamScanner 07-14-2022 18.14.pdf.gpg" //lo puedo desencriptar directamente porque he sido yo quien lo ha encriptado
+gpg: AES256.CFB encrypted data
+gpg: cifrado con 1 frase contraseña
+
+COMO SACAR EL HASH DE UN ARCHIVO:
+C:\Users\Leire Becerra\Downloads>certutil -hashfile ARCHIVO MD5
+MD5 hash de ARCHIVO.pdf:
+e2a3ce0dee3e57b9df626b4b8ea89621
+CertUtil: -hashfile comando completado correctamente.
